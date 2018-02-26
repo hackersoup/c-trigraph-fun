@@ -19,11 +19,13 @@ int main() {
 At first glance it should print out `1 2 3 4 5` with newlines. Not quite! Instead, it will infinitely print out `0`! How come?
 
 In C there are items known as trigraphs which are 3 character sequences interpreted by the preprocessor as a single character. The trigraph `??/` is interpreted as `\` Ending a line with a `\` will delete the following newline, joining the two lines without the `\`, whats known as a line continuation. So in this case…
-```// Why doesn't this work??/
+```
+// Why doesn't this work??/
 i++;
 ```
 turns into…
-```// Why doesn't this work\
+```
+// Why doesn't this work\
 i++;
 ```
 which finally becomes…
